@@ -139,6 +139,29 @@ span {
     background-color: #000000;
 
 }
+.skills h2 {
+    cursor: pointer;
+}
+
+.skills h2:hover {
+    color: var(--orange);
+    transition: all .3s ease;
+    position: relative;
+}
+.skills h2:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: var(--orange);
+    width: 0;
+    transition: all .3s ease;
+}
+.skills h2:hover:after{
+    transition: all .3s ease;
+    width: 100%;
+}
 .skills  {
     margin-left: 7rem;
     width: fit-content;
@@ -149,65 +172,60 @@ span {
 .soft-skills p {
     width: fit-content;
 }
-.skills p{
-    position: relative;
-    transition: all .3s ease;
-    margin: 1rem;
-}
-.skills p:after{
-    margin-left: 15rem;
+.bar {
+    background-color: var(--orange);
+    width: .5rem;
+    height: 2rem;
     border-radius: 36px 42px 10px 32px / 10px 39px 53px 17px;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    background-color: #e05d2d;
-    width: 1rem;
     opacity: 1;
-    transition: all .3s ease;
 }
-.skills p:hover{
-    color: var(--orange);
-    transition: all .3s ease;
+.barHTML {
+    width: 40rem;
+    background-color: aqua;
+    transition: all .2s .5s ease;
+    opacity: 1;
 }
-.skills p:hover:after{
+.barCSS {
+    width: 30rem;
+    background-color: rgb(130, 195, 111);
+    transition: all .2s .6s ease;
+    opacity: 1;
+}
+.barJavaScript {
     width: 20rem;
-    transition: all .3s ease;
+    background-color: rgb(213, 145, 213);
+    transition: all .2s .7s ease;
+    opacity: 1;
 }
-.skills :nth-child(4):hover:after{
+.barNodejs {
     width: 10rem;
-    transition: all .3s ease;
+    background-color: rgb(132, 81, 204);
+    transition: all .2s .8s ease;
+    opacity: 1;
+
 }
-.skills :nth-child(5):hover:after{
-    width: 8rem;
-    transition: all .3s ease;
+.barVSCode{
+    width: 30rem;
+    background-color: rgb(204, 81, 112);
+    transition: all .2s .9s ease;
+    opacity: 1;
+
 }
-.soft-skills p:hover{
-    color: var(--orange);
-    transition: all .3s ease;
-}
-.soft-skills p:hover:after{
-    width: 20rem;
-    transition: all .3s ease;
-}
-.soft-skills :nth-child(2):hover:after{
-    width: 10rem;
-    transition: all .3s ease;
-}
-.soft-skills :nth-child(3):hover:after{
-    width: 15rem;
-    transition: all .3s ease;
-}
-.soft-skills :nth-child(4):hover:after{
-    width: 20rem;
-    transition: all .3s ease;
+
+.barshow {
+
+    opacity: 1;
+    transition: all .2s 1s ease;
 }
 
 .portrait {
-    border-radius: 100%;
-    width: 20rem;
-    margin: 0 3rem auto;
+    /* border-radius: 100%; */
+    max-height: 100vh;
+    /* margin: 0 3rem auto; */
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-left: 3px double var(--orange);
 }
 .whoami-section h1{
     padding: 2rem;
