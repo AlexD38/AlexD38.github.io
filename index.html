@@ -1,111 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>CV</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <nav>
+      <h2 id="welcome">welcome</h2>
+      <div class="nav">
+        <ul>
+          <a class="navlinks" href="#">
+            <li>Home</li>
+          </a>
+          <a class="navlinks" id="aboutbtn" href="#about">
+            <li>About</li>
+          </a>
+          <a class="navlinks" href="#about">
+            <li>Skills</li>
+          </a>
+          <a class="navlinks" href="#about">
+            <li>works</li>
+          </a>
+          <a class="navlinks" href="#contact">
+            <li>contact</li>
+          </a>
+        </ul>
+      </div>
+    </nav>
     <main>
-        <section id="home">
-            <img class="bg" src="./images/pawel-czerwinski-SD1VYMwGICo-unsplash.jpg" alt="ciel orange">
-            <nav>
-                <ul>
-                    <a href="#home">
-                        <li>Home</li>
-                    </a>
-                    <a id="aboutbtn" href="#about">
-                        <li>About</li>
-                    </a>
-                    <a href="#resume">
-                        <li>Resume</li>
-                    </a>
-                    <a href="#works">
-                        <li>works</li>
-                    </a>
-                    <a href="#testimonials">
-                        <li>testimonials</li>
-                    </a>
-                    <a href="contact">
-                        <li>contact</li>
-                    </a>
-                </ul>
-            </nav>
-            <header>
-                <h2>Hi, I'm Alex.</h2>
-                <h1>Fullstack developper</h1>
-                <p>Creating <span>pleasing</span> and <span>effective</span>
-                    visual identities for companies of all sizes around the bourg palette.<br> Let's <span>start</span>
-                    scrolling and learn more <span>about me.</span></p>
-                <div class="underline"></div>
-
-                <div class="icons-container">
-                    <a><?xml version="1.0" encoding="UTF-8"?><svg class="icons" width="128px" height="128px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M21 8v8a5 5 0 01-5 5H8a5 5 0 01-5-5V8a5 5 0 015-5h8a5 5 0 015 5z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 21v-9c0-2.188.5-4 4-4M9 13h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-                    <a><?xml version="1.0" encoding="UTF-8"?><svg class="icons" width="128px" height="128px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M12 16a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 16V8a5 5 0 015-5h8a5 5 0 015 5v8a5 5 0 01-5 5H8a5 5 0 01-5-5z" stroke="currentColor" stroke-width="1.5"></path><path d="M17.5 6.51l.01-.011" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>                    
-                    <a><?xml version="1.0" encoding="UTF-8"?><svg class="icons" width="128px" height="128px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M21 8v8a5 5 0 01-5 5H8a5 5 0 01-5-5V8a5 5 0 015-5h8a5 5 0 015 5zM7 17v-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 17v-3.25M11 10v3.75m0 0c0-3.75 6-3.75 6 0V17M7 7.01l.01-.011" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-                    <a><?xml version="1.0" encoding="UTF-8"?><svg class="icons" width="128px" height="128px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M23 3.01s-2.018 1.192-3.14 1.53a4.48 4.48 0 00-7.86 3v1a10.66 10.66 0 01-9-4.53s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5 0-.278-.028-.556-.08-.83C21.94 5.674 23 3.01 23 3.01z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-                    <a><?xml version="1.0" encoding="UTF-8"?><svg class="icons" width="128px" height="128px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M16 22.027v-2.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7a5.44 5.44 0 00-1.5-3.75 5.07 5.07 0 00-.09-3.77s-1.18-.35-3.91 1.48a13.38 13.38 0 00-7 0c-2.73-1.83-3.91-1.48-3.91-1.48A5.07 5.07 0 005 5.797a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 00-.94 2.58v2.87M9 20.027c-3 .973-5.5 0-7-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-                </div>
-            </header>
-            <footer class="intersection">
-            </footer>
-        </section>
-
-        <section id="about">
-            <main>
-                <!-- <div class="line"></div> -->
-                <section class="portrait-section">
-                    <img class="portrait" src="./images/IMG_1384-transformed.png" alt="protrait">
-                </section>
-                <section class="whoami-section">
-                    <h1>Wanna get to know me?</h1>
-
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident error nisi suscipit
-                        necessitatibus
-                        earum architecto rem vero delectus accusantium eos cum obcaecati odit dolor, iure enim dolores
-                        consequuntur fuga repudiandae!</p>
-                </section>
-                
-            </main>
-            <section class="skills">
-                <h2 class="skillsshow">My skills</h2>
-                <p class="skillsname">HTML</p> <div  class="bar  "></div>
-                <p class="skillsname">CSS</p><div id="barCSS" class="bar "></div>
-                <p class="skillsname">JavaScript</p><div class="bar "></div>
-                <p class="skillsname">Nodejs</p><div class="bar "></div>
-                <p class="skillsname">VSCode</p><div class="bar "></div>
-            </section>
-            <section class="skills soft-skills">
-                <h2 class="skillsshow">My soft skills</h2>
-                <p>Joyful</p><div class="bar barJOY"></div>
-                <p>serious</p><div class="bar barSER"></div>
-                <p>Organized</p><div class="bar barORG"></div>
-                <p>Fast Worker</p><div class="bar barFAS"></div>
-            </section>
-        </section>
-        <section id="resume">
-            <main>
-
-            </main>
-        </section>
-
-        <footer >
-            <div class="footer">
-            <!-- <img class="martin" src="./images/martin.jpg" alt=""> -->
+      <section id="home">
+        <header class="text-focus-in">
+          <h2>Hi, I'm Alex.</h2>
+          <h1>Fullstack developper</h1>
+          <p>
+            Creating <span>pleasing</span> and <span>effective</span> visual
+            identities for companies of all sizes around the bourg palette.<br />
+            Let's <span>start</span> scrolling and learn more
+            <span>about me.</span>
+          </p>
+          <div class="icons-container">
+            <a>
+              <?xml version="1.0" encoding="UTF-8"?><svg
+                class="icons"
+                width="128px"
+                height="128px"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                color="currentColor"
+              >
+                <path
+                  d="M21 8v8a5 5 0 01-5 5H8a5 5 0 01-5-5V8a5 5 0 015-5h8a5 5 0 015 5z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M11 21v-9c0-2.188.5-4 4-4M9 13h6"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </a>
+            <a>
+              <?xml version="1.0" encoding="UTF-8"?><svg
+                class="icons"
+                width="128px"
+                height="128px"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                color="currentColor"
+              >
+                <path
+                  d="M12 16a4 4 0 100-8 4 4 0 000 8z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M3 16V8a5 5 0 015-5h8a5 5 0 015 5v8a5 5 0 01-5 5H8a5 5 0 01-5-5z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                ></path>
+                <path
+                  d="M17.5 6.51l.01-.011"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </a>
+            <a>
+              <?xml version="1.0" encoding="UTF-8"?><svg
+                class="icons"
+                width="128px"
+                height="128px"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                color="currentColor"
+              >
+                <path
+                  d="M21 8v8a5 5 0 01-5 5H8a5 5 0 01-5-5V8a5 5 0 015-5h8a5 5 0 015 5zM7 17v-7"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M11 17v-3.25M11 10v3.75m0 0c0-3.75 6-3.75 6 0V17M7 7.01l.01-.011"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </a>
+            <a>
+              <?xml version="1.0" encoding="UTF-8"?><svg
+                class="icons"
+                width="128px"
+                height="128px"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                color="currentColor"
+              >
+                <path
+                  d="M23 3.01s-2.018 1.192-3.14 1.53a4.48 4.48 0 00-7.86 3v1a10.66 10.66 0 01-9-4.53s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5 0-.278-.028-.556-.08-.83C21.94 5.674 23 3.01 23 3.01z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </a>
+            <a>
+              <?xml version="1.0" encoding="UTF-8"?><svg
+                class="icons"
+                width="128px"
+                height="128px"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                color="currentColor"
+              >
+                <path
+                  d="M16 22.027v-2.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7a5.44 5.44 0 00-1.5-3.75 5.07 5.07 0 00-.09-3.77s-1.18-.35-3.91 1.48a13.38 13.38 0 00-7 0c-2.73-1.83-3.91-1.48-3.91-1.48A5.07 5.07 0 005 5.797a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7a3.37 3.37 0 00-.94 2.58v2.87M9 20.027c-3 .973-5.5 0-7-3"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </header>
+      </section>
+      <section id="about" class="section about">
+        <img
+          class="portrait"
+          src="./images/IMG_1384-transformed.png"
+          alt="protrait"
+        />
+        <!-- <h1>Get to know me</h1> -->
+        <h3 class="pres hidden">
+          I'm a <span>FullStack developper.</span><br />
+          who really like to <span>challenge</span> himself by outcoming any
+          difficulties,<br />
+          with <span>strenght</span>, <span>cold blood</span> and
+          <span>rigor</span>.
+        </h3>
+        <div id="svg-container" class="container">
+          <div id="my-skills" class="skills-container">
+            <svg viewBox="0 0 452 520" class="svg svg1 hidden">
+              <title>HTML5 Logo Badge</title>
+              <path
+                fill="RGB(227,79,38)"
+                d="M 41,460 L 0,0 451,0 410,460 225,512"
+              />
+              <path
+                fill="RGB(239,101,42)"
+                d="M 226,472 L 375,431 410,37 226,37"
+              />
+              <path
+                fill="RGB(236,237,238)"
+                d="M 226,208 L 151,208 146,150 226,150 226,94 84,94 99,265 226,265 z M 226,355 L162,338 158,293 102,293 109,382 226,414 z"
+              />
+              <path
+                fill="RGB(255,255,255)"
+                d="M 226,265 L 295,265 288,338 226,355 226,414 341,382 357,208 226,208 z M 226,94 L226,150 362,150 367,94 z"
+              />
+            </svg>
+            <svg viewBox="0 0 452 520" class="svg svg2 hidden">
+              <title>CSS3 Logo Badge</title>
+              <path
+                fill="RGB(12,115,184)"
+                d="M 41,460 L 0,0 451,0 410,460 225,512"
+              />
+              <path
+                fill="RGB(48,169,220)"
+                d="M 226,472 L 375,431 410,37 226,37"
+              />
+              <path
+                fill="RGB(236,237,238)"
+                d="M 226,208 L 94,208 99,265 226,265 z M 226,94 L 84,94 89,150 226,150 z M 226,355 L 102,322 109,382 226,414 z"
+              />
+              <path
+                fill="RGB(255,255,255)"
+                d="M 226,265 L 295,265 288,338 226,355 226,414 341,382 367,94 226,94 226,150 306,150 300,208 226,208 z"
+              />
+            </svg>
+            <svg viewBox="0 0 452 520" class="svg svg3 hidden">
+              <title>Javascript Logo Badge</title>
+              <path
+                fill="RGB(229,162,40)"
+                d="M 0,0 L 451,0 410,460 225,512 41,460"
+              />
+              <path
+                fill="RGB(241,191,38)"
+                d="M 226,472 L375,431 410,37 226,37"
+              />
+              <path
+                fill="RGB(236,237,238)"
+                d="M 226,94 L 113,94 102,265 226,265 226,208 160,208 165,150 226,150 z M 226,355 L 162,338 158,293 102,293 109,382 226,414 z"
+              />
+              <path
+                fill="RGB(255,255,255)"
+                d="M 226,265 L 295,265 288,338 226,355 226,414 341,382 357,208 226,208 z M 226,94 L 339,94 357,180 301,180 293,150 226,150 z"
+              />
+            </svg>
+            <img class="svg svg4 hidden" src="./images/nodejs.png" alt="" />
+            <img class="svg svg5 hidden" src="./images/expressjs.png" alt="" />
+            <img class="svg svg6 hidden" src="./images/psql.png" alt="" />
+          </div>
         </div>
-        </footer>
+        <!-- <button id="click-to-show-skills">Click here</button> -->
+        <p id="quote" class="quote"></p>
+        <div class="card-container">
+          <div class="card hidden">
+            <div class="card-header">TITLE 1</div>
+            <div class="card-body">
+              <img
+                class="card-img"
+                src="https://source.unsplash.com/300x300?dark-academia"
+                alt=""
+              />
+              <div>Todo.app</div>
+            </div>
+          </div>
+          <div class="card hidden">
+            <div class="card-header">TITLE 2</div>
+            <div class="card-body">
+              <img
+                class="card-img"
+                src="https://source.unsplash.com/300x300?texture"
+                alt=""
+              />
+              <div>meteo.app</div>
+            </div>
+          </div>
+          <div class="card hidden">
+            <div class="card-header">TITLE 3</div>
+            <div class="card-body">
+              <img
+                class="card-img"
+                src="https://source.unsplash.com/300x300?woods"
+                alt=""
+              />
+              <div>bon.app</div>
+            </div>
+          </div>
+        </div>
+        <a href="mailto:dartiguelongue.alexis@gmail.com">
+          <h1 id="mail" class="container center hidden">
+            dartiguelongue.alexis@gmail.com
+          </h1>
+        </a>
+      </section>
+
+      <!-- 
+      <footer>
+        <div class="footer"></div>
+      </footer> -->
     </main>
     <script src="./js/app.js"></script>
-</body>
-
+  </body>
 </html>
