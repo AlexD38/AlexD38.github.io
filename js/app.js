@@ -152,7 +152,12 @@ navlinks[3].addEventListener("click", function () {
   svgs.forEach((svg) => {
     animateElements.hide(svg);
   });
-  animateElements.slideInCards, animateElements.hide(mail);
+  animateElements.slideInCards,
+    animateElements.hide(mail),
+    animateElements.slideInCards,
+    animateElements.hide(pres);
+  animateElements.hide(quote);
+  animateElements.hide(portrait);
 });
 navlinks[3].addEventListener("click", animateElements.slideInCards);
 animateElements.changeWelcomeTextInNav(navlinks[1], "click", welcome);
