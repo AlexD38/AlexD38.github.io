@@ -41,11 +41,6 @@ function randomQuoteDisplay() {
 }
 randomQuoteDisplay();
 
-// function changeText() {
-//   quote.classList.add("hidden");
-//   pres.classList.remove("hidden");
-// }
-
 let slideInLogos = function () {
   let delay = 0;
   svgs.forEach((svg) => {
