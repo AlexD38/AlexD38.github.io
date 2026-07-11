@@ -1,0 +1,61 @@
+{
+  "fetchedAt": "2026-07-11T15:23:25.540Z",
+  "username": "AlexD38",
+  "projects": [
+    {
+      "id": 1277253310,
+      "title": "AI Agent",
+      "description": "Open source project — AI Agent.",
+      "tags": [
+        "JavaScript"
+      ],
+      "url": null,
+      "github": "https://github.com/AlexD38/AI_agent",
+      "featured": true
+    },
+    {
+      "id": 1233768678,
+      "title": "Pronunciation",
+      "description": "🗣️ Pronunciation — A lightning-fast, glassmorphic React tool that instantly converts words and   sentences into IPA and SAMPA phonetics. Powered by the CMU Dictionary and the DataMuse API for   intelligent \"sounds-like\" suggestions.",
+      "tags": [
+        "JavaScript"
+      ],
+      "url": "https://pronunciation-murex.vercel.app",
+      "github": "https://github.com/AlexD38/pronunciation",
+      "featured": true
+    },
+    {
+      "id": 1116267374,
+      "title": "Planets",
+      "description": "🪐 Immersive procedural solar system explorer — fly through unique star systems, scan planets, and explore a living cosmos in the browser (React + Three.js).",
+      "tags": [
+        "JavaScript"
+      ],
+      "url": "https://planets-zeta-jade.vercel.app",
+      "github": "https://github.com/AlexD38/planets",
+      "featured": false
+    },
+    {
+      "id": 1026174493,
+      "title": "Sounds",
+      "description": "👂 Web soundscape mixer — blend rain, waves, fire, train, white noise and more in real time. Mood presets (Sleep, Focus, Cozy, Voyage), persistent snapshots, timer, random generator, filters & Paulstretch. Calm UI, installable PWA. React + Vite. → sounds-iota.vercel.app",
+      "tags": [
+        "JavaScript"
+      ],
+      "url": "https://sounds-mu.vercel.app",
+      "github": "https://github.com/AlexD38/sounds",
+      "featured": false
+    },
+    {
+      "id": 965288542,
+      "title": "MusicNotes",
+      "description": "🎵 Local songwriting app — lyrics editor with chords & tablature, writing aids (syllables, rhymes, phonetics), song structure & metadata, albums/tags organization, and export to TXT, Markdown, ChordPro & PDF.",
+      "tags": [
+        "JavaScript"
+      ],
+      "url": "https://music-notes-orpin.vercel.app",
+      "github": "https://github.com/AlexD38/musicNotes",
+      "featured": false
+    }
+  ]
+}
