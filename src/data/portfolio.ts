@@ -28,12 +28,16 @@ export const about = {
 }
 
 export const skills = [
-  { name: 'React / TypeScript', level: 90 },
-  { name: 'Node.js', level: 85 },
-  { name: 'Python', level: 75 },
-  { name: 'CSS / Design', level: 80 },
-  { name: 'PostgreSQL', level: 70 },
-  { name: 'Docker / DevOps', level: 65 },
+  'React',
+  'TypeScript',
+  'Node.js',
+  'Python',
+  'CSS',
+  'PostgreSQL',
+  'Docker',
+  'Vite',
+  'Three.js',
+  'Framer Motion',
 ]
 
 export const navLinks = [
@@ -41,5 +45,4 @@ export const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Links', href: '#links' },
 ]

@@ -20,30 +20,19 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="skills__grid">
+        <ul className="skills__grid">
           {skills.map((skill, i) => (
-            <motion.div
-              key={skill.name}
+            <motion.li
+              key={skill}
               className="skills__item"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+              transition={{ duration: 0.4, delay: 0.05 + i * 0.04 }}
             >
-              <div className="skills__header">
-                <span className="skills__name">{skill.name}</span>
-                <span className="skills__level">{skill.level}%</span>
-              </div>
-              <div className="skills__bar">
-                <motion.div
-                  className="skills__fill"
-                  initial={{ width: 0 }}
-                  animate={inView ? { width: `${skill.level}%` } : {}}
-                  transition={{ duration: 1, delay: 0.3 + i * 0.08, ease: 'easeOut' }}
-                />
-              </div>
-            </motion.div>
+              {skill}
+            </motion.li>
           ))}
-        </div>
+        </ul>
       </div>
 
       <style>{`
@@ -53,51 +42,29 @@ export default function Skills() {
           border-bottom: 1px solid var(--border);
         }
         .skills__grid {
+          list-style: none;
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 24px;
+          grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+          gap: 12px;
         }
         .skills__item {
-          background: var(--bg-card);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 56px;
+          padding: 14px 16px;
+          text-align: center;
+          font-weight: 500;
+          font-size: 0.95rem;
+          color: var(--text-heading);
           border: 1px solid var(--border);
           border-radius: var(--radius);
-          padding: 24px;
-          transition: border-color 0.3s;
+          transition: border-color 0.25s, color 0.25s, background 0.25s;
         }
         .skills__item:hover {
-          border-color: var(--border-hover);
-        }
-        .skills__header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 12px;
-        }
-        .skills__name {
-          font-weight: 500;
-          color: var(--text-heading);
-          font-size: 0.95rem;
-        }
-        .skills__level {
-          font-size: 0.8rem;
-          color: var(--text-muted);
-          font-variant-numeric: tabular-nums;
-        }
-        .skills__bar {
-          height: 6px;
-          background: rgba(255, 255, 255, 0.04);
-          border-radius: 100px;
-          overflow: hidden;
-        }
-        .skills__fill {
-          height: 100%;
-          background: var(--gradient);
-          border-radius: 100px;
-        }
-        @media (max-width: 768px) {
-          .skills__grid {
-            grid-template-columns: 1fr;
-          }
+          border-color: var(--accent);
+          color: var(--accent-light);
+          background: var(--accent-glow);
         }
       `}</style>
     </section>
