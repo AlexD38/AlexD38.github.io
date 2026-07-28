@@ -3,6 +3,8 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
 const USERNAME = 'AlexD38'
+/** Repos that should not appear in the projects grid (this site itself). */
+const EXCLUDED_REPOS = new Set(['AlexD38.github.io', 'portfolio'])
 const OUTPUT = join(dirname(fileURLToPath(import.meta.url)), '../src/data/repos.generated.json')
 
 function formatTitle(name) {
@@ -63,7 +65,7 @@ async function fetchRepos() {
 
   const repos = await res.json()
   const projects = repos
-    .filter((repo) => !repo.fork)
+    .filter((repo) => !repo.fork && !EXCLUDED_REPOS.has(repo.name))
     .sort((a, b) => b.id - a.id)
     .map(mapRepoToProject)
 

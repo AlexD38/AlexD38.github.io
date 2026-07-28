@@ -2,6 +2,9 @@ import { github } from '../data/portfolio'
 import fallbackData from '../data/repos.generated.json'
 import type { Project } from '../types/project'
 
+/** Repos that should not appear in the projects grid (this site itself). */
+const EXCLUDED_REPOS = new Set(['AlexD38.github.io', 'portfolio'])
+
 interface GitHubRepo {
   id: number
   name: string
@@ -11,6 +14,10 @@ interface GitHubRepo {
   language: string | null
   topics?: string[]
   fork: boolean
+}
+
+function isIncludedRepo(repo: Pick<GitHubRepo, 'name' | 'fork'>): boolean {
+  return !repo.fork && !EXCLUDED_REPOS.has(repo.name)
 }
 
 export interface GitHubProjectsResult {
@@ -62,7 +69,10 @@ function githubHeaders(): HeadersInit {
 
 function getFallback(): GitHubProjectsResult {
   return {
-    projects: fallbackData.projects,
+    projects: fallbackData.projects.filter(
+      (project) =>
+        !EXCLUDED_REPOS.has(project.github.split('/').pop() ?? ''),
+    ),
     source: 'fallback',
   }
 }
@@ -80,7 +90,7 @@ async function fetchFromGitHub(): Promise<Project[]> {
   const repos = (await res.json()) as GitHubRepo[]
 
   return repos
-    .filter((repo) => !repo.fork)
+    .filter(isIncludedRepo)
     .map(mapRepoToProject)
     .sort((a, b) => b.id - a.id)
     .map((project, index) => ({
