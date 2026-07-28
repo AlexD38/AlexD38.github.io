@@ -1,17 +1,39 @@
 {
-  "fetchedAt": "2026-07-11T15:23:25.540Z",
+  "fetchedAt": "2026-07-28T22:03:12.889Z",
   "username": "AlexD38",
   "projects": [
     {
+      "id": 1315462220,
+      "title": "Occult",
+      "description": "🌙 An archival atlas of the 72 spirits of the Ars Goetia.",
+      "tags": [
+        "JavaScript"
+      ],
+      "url": "https://occult-xi.vercel.app",
+      "github": "https://github.com/AlexD38/occult",
+      "featured": true
+    },
+    {
+      "id": 1315263956,
+      "title": "FeedMe",
+      "description": "🥑 Feed Me — planificateur de repas pour la semaine",
+      "tags": [
+        "JavaScript"
+      ],
+      "url": "https://feed-me-alpha-seven.vercel.app",
+      "github": "https://github.com/AlexD38/feedMe",
+      "featured": true
+    },
+    {
       "id": 1277253310,
       "title": "AI Agent",
-      "description": "Open source project — AI Agent.",
+      "description": "🤖 Modular conversational AI agent powered by Cline SDK (@cline/sdk) and local Ollama. Automatic function calling, built-in tools (files, notes, web, system info), interactive terminal UI, skills system, session history, and agent/chat modes. Node.js 22+.",
       "tags": [
         "JavaScript"
       ],
       "url": null,
       "github": "https://github.com/AlexD38/AI_agent",
-      "featured": true
+      "featured": false
     },
     {
       "id": 1233768678,
@@ -22,7 +44,7 @@
       ],
       "url": "https://pronunciation-murex.vercel.app",
       "github": "https://github.com/AlexD38/pronunciation",
-      "featured": true
+      "featured": false
     },
     {
       "id": 1116267374,
@@ -33,6 +55,17 @@
       ],
       "url": "https://planets-zeta-jade.vercel.app",
       "github": "https://github.com/AlexD38/planets",
+      "featured": false
+    },
+    {
+      "id": 1092992615,
+      "title": "Budget Buddy",
+      "description": "💵 App d’épargne personnelle : objectifs, rythme, transactions et suivi multi-projets (React + Vite).",
+      "tags": [
+        "JavaScript"
+      ],
+      "url": "https://budget-buddy-mu-ten.vercel.app",
+      "github": "https://github.com/AlexD38/budget-buddy",
       "featured": false
     },
     {
