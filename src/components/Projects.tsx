@@ -1,26 +1,48 @@
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { ExternalLink, Code, Folder, LoaderCircle } from 'lucide-react'
+import { useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFolder } from '@fortawesome/free-solid-svg-icons'
+import { animate, set, stagger } from 'animejs'
 import { useGitHubProjectsContext } from '../context/GitHubProjectsContext'
+import { useInViewOnce } from '../hooks/useInViewAnime'
+import { prefersReducedMotion } from '../lib/anime'
+import { icons } from '../lib/icons'
 
 export default function Projects() {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const { ref, inView } = useInViewOnce<HTMLElement>({ threshold: 0.12 })
   const { projects, loading, source, retry } = useGitHubProjectsContext()
 
+  useEffect(() => {
+    if (!inView || !ref.current) return
+    const items = ref.current.querySelectorAll<HTMLElement>('[data-project]')
+    const heading = ref.current.querySelectorAll<HTMLElement>('[data-projects-heading]')
+    if (prefersReducedMotion()) {
+      set([heading, items], { opacity: 1, translateY: 0 })
+      return
+    }
+    set(heading, { opacity: 0, translateY: 24 })
+    set(items, { opacity: 0, translateY: 28 })
+    animate(heading, {
+      opacity: [0, 1],
+      translateY: [24, 0],
+      duration: 700,
+      ease: 'outExpo',
+    })
+    animate(items, {
+      opacity: [0, 1],
+      translateY: [28, 0],
+      delay: stagger(70, { start: 120 }),
+      duration: 700,
+      ease: 'outExpo',
+    })
+  }, [inView, projects, loading, ref])
+
   return (
-    <section id="projects" className="section projects">
-      <div className="container" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
+    <section id="projects" className="section projects" ref={ref}>
+      <div className="container">
+        <div data-projects-heading>
           <h2 className="section-title">Projects</h2>
-          <p className="section-subtitle">
-            My personal creations, synced from GitHub.
-          </p>
-        </motion.div>
+          <p className="section-subtitle">Personal work synced live from GitHub.</p>
+        </div>
 
         {source === 'fallback' && !loading && (
           <p className="projects__fallback-notice">
@@ -33,7 +55,7 @@ export default function Projects() {
 
         {loading && (
           <div className="projects__state">
-            <LoaderCircle size={28} className="projects__spinner" />
+            <FontAwesomeIcon icon={icons.spinner} className="projects__spinner" />
             <p>Loading projects…</p>
           </div>
         )}
@@ -45,29 +67,37 @@ export default function Projects() {
         )}
 
         {!loading && projects.length > 0 && (
-          <div className="projects__grid">
-            {projects.map((project, i) => (
-              <motion.article
+          <ul className="projects__grid">
+            {projects.map((project) => (
+              <li
                 key={project.id}
-                className={`project-card ${project.featured ? 'project-card--featured' : ''}`}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-                whileHover={{ y: -6 }}
+                className={`project-card${project.featured ? ' project-card--featured' : ''}`}
+                data-project
               >
-                <div className="project-card__icon">
-                  <Folder size={24} />
-                </div>
-
-                <div className="project-card__links">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <Code size={18} />
-                  </a>
-                  {project.url && (
-                    <a href={project.url} target="_blank" rel="noopener noreferrer" aria-label="View project">
-                      <ExternalLink size={18} />
+                <div className="project-card__header">
+                  <span className="project-card__icon" aria-hidden>
+                    <FontAwesomeIcon icon={faFolder} />
+                  </span>
+                  <div className="project-card__links">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${project.title} on GitHub`}
+                    >
+                      <FontAwesomeIcon icon={icons.github} />
                     </a>
-                  )}
+                    {project.url && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open ${project.title}`}
+                      >
+                        <FontAwesomeIcon icon={icons.external} />
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 <h3 className="project-card__title">{project.title}</h3>
@@ -76,13 +106,15 @@ export default function Projects() {
                 {project.tags.length > 0 && (
                   <div className="project-card__tags">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="tag">{tag}</span>
+                      <span key={tag} className="tag">
+                        {tag}
+                      </span>
                     ))}
                   </div>
                 )}
-              </motion.article>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </div>
 
@@ -90,38 +122,35 @@ export default function Projects() {
         .projects__fallback-notice {
           display: flex;
           align-items: center;
-          justify-content: center;
           gap: 12px;
           flex-wrap: wrap;
-          padding: 12px 16px;
-          margin-bottom: 24px;
+          padding: 14px 16px;
+          margin-bottom: 28px;
           border-radius: var(--radius);
           border: 1px solid var(--border);
-          background: var(--bg-card);
+          background: var(--bg-paper);
           color: var(--text-muted);
           font-size: 0.9rem;
         }
         .projects__retry {
-          color: var(--accent-light);
-          font-weight: 500;
+          color: var(--accent);
+          font-weight: 600;
           text-decoration: underline;
-          text-underline-offset: 2px;
-        }
-        .projects__retry:hover {
-          color: var(--text-heading);
+          text-underline-offset: 3px;
         }
         .projects__state {
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 16px;
-          padding: 48px 0;
+          padding: 56px 0;
           color: var(--text-muted);
           text-align: center;
         }
         .projects__spinner {
+          font-size: 1.4rem;
+          color: var(--accent);
           animation: spin 1s linear infinite;
-          color: var(--accent-light);
         }
         @keyframes spin {
           to { transform: rotate(360deg); }
@@ -129,60 +158,87 @@ export default function Projects() {
         .projects__grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          gap: 24px;
+          gap: 20px;
         }
         .project-card {
+          display: flex;
+          flex-direction: column;
           position: relative;
-          background: var(--bg-card);
-          border: 1px solid var(--border);
+          min-height: 220px;
+          padding: 28px;
           border-radius: var(--radius-lg);
-          padding: 32px;
-          transition: border-color 0.3s, box-shadow 0.3s;
+          border: 1px solid var(--border);
+          background: var(--bg-paper);
+          transition: border-color 0.3s, transform 0.35s var(--ease-out), background 0.3s;
         }
         .project-card:hover {
-          border-color: var(--border-hover);
-          box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+          border-color: var(--border-strong);
+          transform: translateY(-4px);
+          background: var(--bg-elevated);
         }
         .project-card--featured {
-          border-color: rgba(59, 130, 246, 0.15);
+          border-color: rgba(255, 106, 61, 0.28);
         }
         .project-card--featured::before {
           content: '';
           position: absolute;
           top: 0;
-          left: 32px;
-          right: 32px;
+          left: 28px;
+          right: 28px;
           height: 2px;
-          background: var(--gradient);
           border-radius: 0 0 4px 4px;
+          background: var(--accent);
         }
-        .project-card__icon {
-          color: var(--accent-light);
+        .project-card__header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
           margin-bottom: 20px;
         }
-        .project-card__links {
-          position: absolute;
-          top: 32px;
-          right: 32px;
+        .project-card__icon {
           display: flex;
-          gap: 12px;
+          align-items: center;
+          justify-content: center;
+          width: 42px;
+          height: 42px;
+          border-radius: var(--radius);
+          border: 1px solid var(--border);
+          color: var(--accent);
+          background: var(--accent-soft);
+          font-size: 1rem;
+        }
+        .project-card__links {
+          display: flex;
+          gap: 8px;
         }
         .project-card__links a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: var(--radius);
+          border: 1px solid var(--border);
           color: var(--text-muted);
-          transition: color 0.2s;
+          transition: color 0.2s, border-color 0.2s, background 0.2s;
         }
         .project-card__links a:hover {
-          color: var(--accent-light);
+          color: var(--accent);
+          border-color: var(--accent);
+          background: var(--accent-soft);
         }
         .project-card__title {
-          font-size: 1.15rem;
+          font-family: var(--font-display);
+          font-size: 1.25rem;
           font-weight: 600;
+          letter-spacing: -0.03em;
           color: var(--text-heading);
           margin-bottom: 12px;
         }
         .project-card__desc {
-          font-size: 0.9rem;
-          color: var(--text-muted);
+          flex: 1;
+          font-size: 0.95rem;
+          color: var(--text);
           line-height: 1.7;
           margin-bottom: 20px;
         }
@@ -190,6 +246,7 @@ export default function Projects() {
           display: flex;
           flex-wrap: wrap;
           gap: 8px;
+          margin-top: auto;
         }
         @media (max-width: 768px) {
           .projects__grid {
